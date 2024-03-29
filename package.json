@@ -1,0 +1,35 @@
+{
+  "name": "generating-files-by-env",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "vite-node scripts/pre_build.ts",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "prebuild:staging": "vite-node scripts/pre_build.ts --mode staging",
+    "build:staging": "run-p type-check \"build-only:staging {@}\" --",
+    "prebuild:production": "vite-node scripts/pre_build.ts --mode production",
+    "build:production": "run-p type-check \"build-only:production {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "build-only:staging": "vite build --mode staging",
+    "build-only:production": "vite build --mode production",
+    "type-check": "vue-tsc --build --force"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
+    "@types/node": "^20.11.28",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/tsconfig": "^0.5.1",
+    "commander": "^12.0.0",
+    "npm-run-all2": "^6.1.2",
+    "typescript": "~5.4.0",
+    "vite": "^5.1.6",
+    "vite-node": "^1.4.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
